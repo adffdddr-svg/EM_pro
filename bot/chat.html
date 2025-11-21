@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html dir="rtl" lang="ar">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>مساعد HR الذكي - Smart HR Bot</title>
+    
+    <!-- TailwindCSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- DaisyUI -->
+    <link href="https://cdn.jsdelivr.net/npm/daisyui@4.7.2/dist/full.css" rel="stylesheet" type="text/css" />
+    
+    <!-- Animate.css -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
+    
+    <!-- LottieFiles -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/lottie-web/5.7.4/lottie.min.js"></script>
+    
+    <!-- Material Icons -->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="../assets/css/chat.css">
+    
+    <style>
+        .material-icons {
+            font-family: 'Material Icons';
+            font-weight: normal;
+            font-style: normal;
+            font-size: 24px;
+            line-height: 1;
+            letter-spacing: normal;
+            text-transform: none;
+            display: inline-block;
+            white-space: nowrap;
+            word-wrap: normal;
+            direction: ltr;
+            -webkit-font-feature-settings: 'liga';
+            -webkit-font-smoothing: antialiased;
+        }
+    </style>
+</head>
+<body class="bg-base-200">
+    <div class="min-h-screen flex flex-col">
+        <!-- Header -->
+        <div class="bg-primary text-primary-content shadow-lg">
+            <div class="container mx-auto px-4 py-4">
+                <div class="flex items-center justify-between">
+                    <div class="flex items-center gap-3">
+                        <div class="avatar">
+                            <div class="w-12 rounded-full bg-base-100 text-primary flex items-center justify-center">
+                                <span class="material-icons text-3xl">smart_toy</span>
+                            </div>
+                        </div>
+                        <div>
+                            <h1 class="text-2xl font-bold">مساعد HR الذكي</h1>
+                            <p class="text-sm opacity-80">Smart HR Bot</p>
+                        </div>
+                    </div>
+                    <div class="flex items-center gap-2">
+                        <div class="badge badge-success gap-2">
+                            <div class="w-2 h-2 rounded-full bg-success animate-pulse"></div>
+                            متصل
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Quick Replies -->
+        <div class="bg-base-100 border-b border-base-300 shadow-sm">
+            <div class="container mx-auto px-4 py-3">
+                <div class="flex flex-wrap gap-2 justify-center">
+                    <button class="btn btn-sm btn-outline btn-primary quick-reply" data-message="عرض معلومات موظف">
+                        <span class="material-icons text-sm">person</span>
+                        عرض معلومات موظف
+                    </button>
+                    <button class="btn btn-sm btn-outline btn-primary quick-reply" data-message="إضافة موظف جديد">
+                        <span class="material-icons text-sm">person_add</span>
+                        إضافة موظف جديد
+                    </button>
+                    <button class="btn btn-sm btn-outline btn-primary quick-reply" data-message="تعديل راتب">
+                        <span class="material-icons text-sm">attach_money</span>
+                        تعديل راتب
+                    </button>
+                    <button class="btn btn-sm btn-outline btn-primary quick-reply" data-message="شكد راتبي؟">
+                        <span class="material-icons text-sm">account_balance_wallet</span>
+                        راتبي
+                    </button>
+                    <button class="btn btn-sm btn-outline btn-primary quick-reply" data-message="كم إجازة متبقية؟">
+                        <span class="material-icons text-sm">event</span>
+                        الإجازات
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Chat Container -->
+        <div class="flex-1 container mx-auto px-4 py-6">
+            <div class="max-w-4xl mx-auto">
+                <div class="card bg-base-100 shadow-xl">
+                    <div class="card-body p-0">
+                        <!-- Messages Area -->
+                        <div id="chatMessages" class="h-[500px] overflow-y-auto p-6 space-y-4 bg-base-200">
+                            <!-- Welcome Message -->
+                            <div class="chat chat-start animate__animated animate__fadeInUp">
+                                <div class="chat-image avatar">
+                                    <div class="w-10 rounded-full bg-primary text-primary-content flex items-center justify-center">
+                                        <span class="material-icons">smart_toy</span>
+                                    </div>
+                                </div>
+                                <div class="chat-header">
+                                    مساعد HR
+                                    <time class="text-xs opacity-50">الآن</time>
+                                </div>
+                                <div class="chat-bubble chat-bubble-primary">
+                                    <p class="font-bold mb-2">مرحباً! 👋</p>
+                                    <p>أنا مساعد HR الذكي. يمكنني مساعدتك في:</p>
+                                    <ul class="list-disc list-inside mt-2 space-y-1 text-sm">
+                                        <li>الاستفسار عن الراتب والإجازات</li>
+                                        <li>عرض معلومات الموظفين</li>
+                                        <li>إضافة أو تعديل الموظفين</li>
+                                        <li>تعديل الرواتب</li>
+                                    </ul>
+                                    <p class="mt-2">كيف يمكنني مساعدتك اليوم؟</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Input Area -->
+                        <div class="border-t border-base-300 p-4 bg-base-100">
+                            <div class="flex items-end gap-2">
+                                <!-- Voice Record Button -->
+                                <button id="voiceRecordBtn" class="btn btn-circle btn-ghost btn-sm">
+                                    <span class="material-icons text-primary">mic</span>
+                                </button>
+                                
+                                <!-- Text Input -->
+                                <div class="flex-1">
+                                    <input 
+                                        type="text" 
+                                        id="messageInput" 
+                                        placeholder="اكتب رسالتك هنا..." 
+                                        class="input input-bordered w-full"
+                                        autocomplete="off"
+                                    />
+                                </div>
+                                
+                                <!-- Send Button -->
+                                <button id="sendBtn" class="btn btn-circle btn-primary">
+                                    <span class="material-icons">send</span>
+                                </button>
+                            </div>
+                            
+                            <!-- Recording Indicator -->
+                            <div id="recordingIndicator" class="hidden mt-2 flex items-center gap-2 text-error">
+                                <span class="material-icons animate-pulse">fiber_manual_record</span>
+                                <span class="text-sm">جاري التسجيل... اضغط مرة أخرى للتوقف</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Lottie Loader (Hidden by default) -->
+    <div id="lottieLoader" class="hidden">
+        <div id="lottieContainer" style="width: 50px; height: 50px;"></div>
+    </div>
+
+    <!-- Scripts -->
+    <script>
+        // Set API URL
+        window.BOT_API_URL = window.BOT_API_URL || '/api/hrbot.php';
+    </script>
+    <script src="../assets/js/chat.js"></script>
+</body>
+</html>
+

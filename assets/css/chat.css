@@ -1,0 +1,106 @@
+/**
+ * Employee Management System
+ * Smart HR Bot - Custom Chat Styles
+ * 
+ * Additional styles for chat interface
+ * Most styling is handled by TailwindCSS and DaisyUI
+ */
+
+/* Smooth scrolling */
+#chatMessages {
+    scroll-behavior: smooth;
+}
+
+/* Custom scrollbar */
+#chatMessages::-webkit-scrollbar {
+    width: 8px;
+}
+
+#chatMessages::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+#chatMessages::-webkit-scrollbar-thumb {
+    background: #cbd5e1;
+    border-radius: 4px;
+}
+
+#chatMessages::-webkit-scrollbar-thumb:hover {
+    background: #94a3b8;
+}
+
+/* Chat bubble animations */
+.chat-bubble {
+    animation-duration: 0.5s;
+}
+
+/* Regenerate button hover effect */
+.regenerate-btn:hover {
+    transform: scale(1.05);
+    transition: transform 0.2s;
+}
+
+/* Voice recording button pulse */
+#voiceRecordBtn.btn-error {
+    animation: pulse 1.5s infinite;
+}
+
+@keyframes pulse {
+    0%, 100% {
+        opacity: 1;
+    }
+    50% {
+        opacity: 0.7;
+    }
+}
+
+/* Quick reply buttons hover */
+.quick-reply:hover {
+    transform: translateY(-2px);
+    transition: transform 0.2s;
+}
+
+/* Loading animation container */
+#lottieLoaderContainer {
+    margin: 0 auto;
+}
+
+/* Audio player styling */
+audio {
+    outline: none;
+}
+
+audio::-webkit-media-controls-panel {
+    background-color: rgba(255, 255, 255, 0.1);
+}
+
+/* Message input focus */
+#messageInput:focus {
+    outline: none;
+    border-color: hsl(var(--p));
+    box-shadow: 0 0 0 3px hsla(var(--p) / 0.1);
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    #chatMessages {
+        height: 400px !important;
+    }
+    
+    .quick-reply {
+        font-size: 0.75rem;
+        padding: 0.5rem;
+    }
+}
+
+/* Dark mode support (if needed) */
+@media (prefers-color-scheme: dark) {
+    #chatMessages::-webkit-scrollbar-thumb {
+        background: #475569;
+    }
+    
+    #chatMessages::-webkit-scrollbar-thumb:hover {
+        background: #64748b;
+    }
+}
+

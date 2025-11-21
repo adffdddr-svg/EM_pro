@@ -1,2 +1,115 @@
-# EM_pro
-A web-based employee management platform for managing staff data and operations.
+# Employee Management System
+## نظام إدارة الموظفين
+
+مشروع تخرج - جامعة البصرة  
+كلية علوم الحاسوب وتكنولوجيا المعلومات
+
+---
+
+## نظرة عامة
+
+نظام إدارة موظفين متكامل مبني باستخدام PHP خام (Pure PHP) وCSS مخصص، يوفر إدارة شاملة للموظفين مع نظام أرشيف متقدم.
+
+## المميزات
+
+- ✅ إدارة كاملة للموظفين (إضافة، تعديل، حذف، عرض)
+- ✅ نظام أرشيف للموظفين السابقين
+- ✅ بحث وفلترة متقدمة
+- ✅ رفع الصور الشخصية
+- ✅ لوحة تحكم مع إحصائيات
+- ✅ تصميم متجاوب مع جميع الأجهزة
+- ✅ حماية أمنية شاملة
+
+## التقنيات المستخدمة
+
+- **Backend**: PHP 7.4+ (Pure PHP)
+- **Frontend**: HTML5, CSS3, JavaScript
+- **Database**: MySQL
+- **Server**: Apache (WAMP)
+
+## متطلبات التشغيل
+
+- WAMP Server أو XAMPP
+- PHP 7.4 أو أحدث
+- MySQL 5.7 أو أحدث
+- Apache Server
+
+## التثبيت
+
+1. انسخ المشروع إلى مجلد `www` في WAMP
+2. قم بإنشاء قاعدة البيانات من ملف `database/schema.sql`
+3. تأكد من إعدادات قاعدة البيانات في `config/config.php`
+4. افتح المتصفح وانتقل إلى `http://localhost/EM_pro`
+
+## بيانات الدخول الافتراضية
+
+- **اسم المستخدم**: admin
+- **كلمة المرور**: admin123
+
+## هيكل المشروع
+
+```
+EM_pro/
+├── config/          # إعدادات النظام
+├── includes/        # الملفات المشتركة
+├── assets/          # الملفات الثابتة (CSS, JS, Images)
+├── admin/           # لوحة التحكم
+├── auth/            # نظام المصادقة
+├── database/        # ملفات قاعدة البيانات
+└── index.php        # الصفحة الرئيسية
+```
+
+## الحماية الأمنية
+
+- ✅ حماية من SQL Injection (Prepared Statements)
+- ✅ حماية من XSS (htmlspecialchars, cleanInput)
+- ✅ حماية CSRF (CSRF Tokens)
+- ✅ تشفير كلمات المرور (password_hash)
+- ✅ جلسات آمنة
+- ✅ التحقق من المدخلات (Validation)
+
+## الملفات الرئيسية
+
+### الإعدادات
+- `config/config.php` - الإعدادات العامة
+- `config/database.php` - إعدادات قاعدة البيانات
+
+### الوظائف
+- `includes/functions.php` - الدوال المساعدة
+- `includes/auth.php` - دوال المصادقة
+
+### الواجهات
+- `admin/dashboard.php` - لوحة التحكم
+- `admin/employees/index.php` - قائمة الموظفين
+- `admin/employees/add.php` - إضافة موظف
+- `admin/employees/edit.php` - تعديل موظف
+- `admin/employees/view.php` - عرض تفاصيل موظف
+- `admin/employees/delete.php` - حذف موظف
+- `admin/employees/archive.php` - الأرشيف
+
+## قاعدة البيانات
+
+### الجداول
+- `users` - المستخدمون (المديرون)
+- `employees` - الموظفون النشطون
+- `employees_archive` - أرشيف الموظفين
+- `departments` - الأقسام
+
+## التطوير
+
+للتطوير المستقبلي:
+- إضافة نظام الصلاحيات المتقدم
+- إضافة نظام الحضور والانصراف
+- إضافة نظام الرواتب
+- إضافة التقارير المتقدمة
+- إضافة تصدير البيانات (Excel, PDF)
+
+## الدعم
+
+للمساعدة والدعم، يرجى التواصل مع فريق التطوير.
+
+---
+
+**جامعة البصرة - كلية علوم الحاسوب وتكنولوجيا المعلومات**  
+© 2024 - جميع الحقوق محفوظة
+

@@ -1,0 +1,56 @@
+# Employee Management System
+# إعدادات Apache
+
+# تحديد الصفحة الافتراضية
+DirectoryIndex index.php index.html index.htm
+
+# تفعيل محرك إعادة الكتابة
+RewriteEngine On
+
+# منع عرض محتويات المجلدات
+Options -Indexes
+
+# صفحة خطأ مخصصة (إزالة /EM_pro للاستضافة)
+ErrorDocument 404 /index.php
+
+# إعدادات الأمان
+<IfModule mod_headers.c>
+    # منع عرض معلومات الخادم
+    Header unset Server
+    Header unset X-Powered-By
+    
+    # حماية من XSS
+    Header set X-XSS-Protection "1; mode=block"
+    
+    # حماية من Clickjacking
+    Header set X-Frame-Options "SAMEORIGIN"
+    
+    # منع MIME sniffing
+    Header set X-Content-Type-Options "nosniff"
+</IfModule>
+
+# ضغط الملفات
+<IfModule mod_deflate.c>
+    AddOutputFilterByType DEFLATE text/html text/plain text/xml text/css text/javascript application/javascript
+</IfModule>
+
+# التخزين المؤقت للملفات الثابتة
+<IfModule mod_expires.c>
+    ExpiresActive On
+    ExpiresByType image/jpg "access plus 1 year"
+    ExpiresByType image/jpeg "access plus 1 year"
+    ExpiresByType image/gif "access plus 1 year"
+    ExpiresByType image/png "access plus 1 year"
+    ExpiresByType image/webp "access plus 1 year"
+    ExpiresByType text/css "access plus 1 month"
+    ExpiresByType application/javascript "access plus 1 month"
+</IfModule>
+
+# إزالة إعدادات PHP (قد تسبب مشاكل على الاستضافة المجانية)
+# يمكن إضافة هذه الإعدادات في php.ini أو .user.ini بدلاً من ذلك
+# <IfModule mod_php.c>
+#     php_value upload_max_filesize 10M
+#     php_value post_max_size 10M
+#     php_value max_execution_time 300
+#     php_value max_input_time 300
+# </IfModule>

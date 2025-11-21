@@ -1,0 +1,31 @@
+# إعدادات VirtualHost لمشروع EM_pro
+# انسخ هذا الكود وأضفه في نهاية ملف httpd-vhosts.conf
+
+# VirtualHost للمشروع الرئيسي (localhost)
+<VirtualHost *:80>
+    ServerName localhost
+    DocumentRoot "C:/wamp64/www"
+    
+    <Directory "C:/wamp64/www">
+        Options Indexes FollowSymLinks
+        AllowOverride All
+        Require all granted
+    </Directory>
+</VirtualHost>
+
+# VirtualHost لمشروع EM_pro
+<VirtualHost *:80>
+    ServerName empro.local
+    DocumentRoot "C:/wamp64/www/EM_pro"
+    
+    <Directory "C:/wamp64/www/EM_pro">
+        Options Indexes FollowSymLinks
+        AllowOverride All
+        Require all granted
+        DirectoryIndex index.php index.html
+    </Directory>
+    
+    ErrorLog "logs/empro_error.log"
+    CustomLog "logs/empro_access.log" common
+</VirtualHost>
+

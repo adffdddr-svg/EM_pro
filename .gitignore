@@ -1,0 +1,31 @@
+# OpenAI API Key
+config/openai_key.txt
+config/openrouter_key.txt
+
+# Environment files
+.env
+.env.local
+
+# Logs
+*.log
+error_log
+
+# Uploads
+assets/images/uploads/*
+!assets/images/uploads/.gitkeep
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Temporary files
+*.tmp
+*.temp
+

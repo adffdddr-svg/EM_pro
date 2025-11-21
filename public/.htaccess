@@ -1,0 +1,13 @@
+# إعادة توجيه جميع الطلبات إلى المسار الصحيح
+RewriteEngine On
+
+# إذا كان localhost، أضف /EM_pro
+RewriteCond %{HTTP_HOST} ^localhost$ [OR]
+RewriteCond %{HTTP_HOST} ^127\.0\.0\.1$
+RewriteRule ^(.*)$ /EM_pro/auth/login.php [R=301,L]
+
+# إذا كان empro.local أو Cloudflare Tunnel، لا نضيف /EM_pro
+RewriteCond %{HTTP_HOST} !^localhost$ [NC]
+RewriteCond %{HTTP_HOST} !^127\.0\.0\.1$ [NC]
+RewriteRule ^(.*)$ /auth/login.php [R=301,L]
+
